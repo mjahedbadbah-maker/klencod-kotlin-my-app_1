@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>مولّد حساسية ببجي</title>
+<style>
+:root{--bg:#0b1220;--panel:#151f31;--panel2:#1d2a40;--text:#f4f7fb;--muted:#aab7ca;--accent:#42d3a5;--line:#2d3b52}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(160deg,#0b1220,#111d31);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.7}
+main{max-width:850px;margin:auto;padding:20px}
+header{text-align:center;padding:20px 8px}
+h1{font-size:clamp(25px,5vw,36px);margin:0 0 8px}
+header p,.muted{color:var(--muted);margin:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;margin:16px 0;box-shadow:0 10px 28px #0003}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+label{display:block;font-weight:bold;margin-bottom:6px}
+select,input{width:100%;padding:12px;border-radius:11px;border:1px solid var(--line);background:#0e1726;color:var(--text);font-size:16px}
+button{border:0;border-radius:12px;padding:13px 18px;font-size:16px;font-weight:bold;cursor:pointer}
+.primary{background:var(--accent);color:#06251b;width:100%;margin-top:16px}
+.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}
+.result-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+h2{font-size:21px;margin:0 0 12px}
+h3{font-size:17px;margin:16px 0 8px;color:var(--accent)}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+th,td{padding:10px 8px;text-align:center;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:normal}
+td:last-child{font-weight:bold;font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--muted)}
+.hidden{display:none}
+.pill{display:inline-block;background:#123d35;color:#9af2d7;padding:4px 10px;border-radius:30px;font-size:13px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+@media(max-width:480px){main{padding:12px}.panel{padding:14px}th,td{padding:8px 4px;font-size:13px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <span class="pill">أداة مستقلة – لا تحتاج إنترنت</span>
+  <h1>مولّد حساسية PUBG MOBILE</h1>
+  <p>أنشئ نقطة بداية للحساسية حسب فئة جهازك ومعدل الإطارات وطريقة اللعب.</p>
+</header>
+
+<section class="panel">
+  <h2>إعدادات جهازك</h2>
+  <div class="grid">
+    <div>
+      <label for="device">فئة الجهاز</label>
+      <select id="device">
+        <option value="low">اقتصادي / ضعيف</option>
+        <option value="mid" selected>متوسط – مثل Redmi 12C</option>
+        <option value="high">قوي</option>
+        <option value="flagship">رائد / ألعاب</option>
+      </select>
+    </div>
+    <div>
+      <label for="fps">الفريمات التي تستخدمها فعلياً</label>
+      <select id="fps">
+        <option value="30">30 FPS</option>
+        <option value="40">40 FPS</option>
+        <option value="60" selected>60 FPS</option>
+        <option value="90">90 FPS</option>
+        <option value="120">120 FPS</option>
+      </select>
+    </div>
+    <div>
+      <label for="gyro">هل تستخدم الجيروسكوب؟</label>
+      <select id="gyro">
+        <option value="no" selected>لا</option>
+        <option value="scope">عند فتح المنظار فقط</option>
+        <option value="always">دائماً</option>
+      </select>
+    </div>
+    <div>
+      <label for="style">أسلوب اللعب</label>
+      <select id="style">
+        <option value="stable" selected>ثبات وتحكم متوازن</option>
+        <option value="fast">سريع وقريب المدى</option>
+        <option value="precise">دقيق وبعيد المدى</option>
+      </select>
+    </div>
+    <div>
+      <label for="touch">معدل اللمس (اختياري)</label>
+      <select id="touch">
+        <option value="standard" selected>عادي / غير معروف</option>
+        <option value="high">مرتفع</option>
+      </select>
+    </div>
+    <div>
+      <label for="layout">عدد الأصابع</label>
+      <select id="layout">
+        <option value="2">إصبعان</option>
+        <option value="3">3 أصابع</option>
+        <option value="4" selected>4 أصابع</option>
+        <option value="5">5 أصابع أو أكثر</option>
+      </select>
+    </div>
+  </div>
+  <button class="primary" id="generate">إنشاء الحساسية</button>
+  <p class="note">مهم: صفحة HTML لا تستطيع قراءة فريمات اللعبة أو مواصفات الهاتف بدقة من المتصفح؛ اختر الفريمات التي تظهر لك داخل اللعبة. النتائج تقديرية وليست قيماً رسمية.</p>
+</section>
+
+<section class="panel hidden" id="output">
+  <div class="result-head">
+    <h2>الحساسية المقترحة</h2>
+    <button class="secondary" id="copyAll">نسخ الكل</button>
+  </div>
+  <p class="muted" id="summary"></p>
+  <div id="tables"></div>
+  <h3>طريقة التجربة والتعديل</h3>
+  <ol>
+    <li>جرّب القيم في ساحة التدريب لمدة 10 دقائق.</li>
+    <li>إذا كان التصويب يتجاوز الهدف، قلّل القيمة المناسبة بمقدار 3 إلى 5.</li>
+    <li>إذا كان التصويب بطيئاً، ارفع القيمة بمقدار 3 إلى 5.</li>
+    <li>لا تغيّر كل القيم مرة واحدة؛ عدّل منظاراً واحداً في كل مرة.</li>
+  </ol>
+  <p class="note">هذه توصيات بداية قابلة للتعديل، ولا تضمن زيادة الدقة أو ثبات الارتداد. لا تعدّل ملفات اللعبة ولا تستخدم أدوات خارجية.</p>
+</section>
+<footer>مولّد حساسية تجريبي • يعمل محلياً على هاتفك • لا يرسل بياناتك إلى أي خادم</footer>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const clamp = n => Math.max(1, Math.min(300, Math.round(n)));
+let latestText = "";
+
+function buildValues(){
+  const device = $("device").value;
+  const fps = Number($("fps").value);
+  const gyro = $("gyro").value;
+  const style = $("style").value;
+  const touch = $("touch").value;
+
+  // معامل تقريبي فقط: الفريمات الأعلى قد تجعل الاستجابة تبدو أكثر سلاسة.
+  const deviceFactor = {low:0.94, mid:1, high:1.03, flagship:1.05}[device];
+  const fpsFactor = fps <= 30 ? 0.94 : fps <= 40 ? 0.97 : fps <= 60 ? 1 : fps <= 90 ? 1.02 : 1.04;
+  const touchFactor = touch === "high" ? 1.02 : 1;
+  const styleFactor = {stable:0.96, fast:1.07, precise:0.91}[style];
+  const factor = deviceFactor * fpsFactor * touchFactor * styleFactor;
+
+  const cameraBase = [120, 110, 50, 35, 25, 18];
+  const adsBase    = [105, 100, 45, 32, 22, 15];
+  const names = ["منظور الشخص الثالث بدون منظار","منظور الشخص الأول بدون منظار","ريد دوت / هولو","منظار 2x","منظار 3x","منظار 4x"];
+
+  const camera = cameraBase.map(v => clamp(v*factor));
+  const ads = adsBase.map(v => clamp(v*factor));
+  // عند عدم استخدام الجيروسكوب تبقى قيمه صفراً لتوضيح أنه غير مستخدم.
+  const gyroBase = [300, 300, 280, 220, 180, 140];
+  const gyroValues = gyro === "no" ? gyroBase.map(()=>0) :
+    gyroBase.map((v,i)=>clamp(v * (gyro === "scope" && i < 2 ? 0.45 : 1) * (device === "low" ? 0.94 : 1)));
+
+  return {names,camera,ads,gyroValues};
+}
+
+function table(title, names, values){
+  return `<h3>${title}</h3><table><thead><tr><th>نوع المنظار</th><th>القيمة</th></tr></thead><tbody>${
+    names.map((n,i)=>`<tr><td>${n}</td><td>${values[i]}</td></tr>`).join("")
+  }</tbody></table>`;
+}
+function generate(){
+  const v = buildValues();
+  const fps = $("fps").value;
+  const deviceText = $("device").selectedOptions[0].text;
+  const gyroText = $("gyro").selectedOptions[0].text;
+  $("summary").textContent = `الفئة: ${deviceText} • الفريمات المختارة: ${fps} FPS • الجيروسكوب: ${gyroText}`;
+  $("tables").innerHTML =
+    table("حساسية الكاميرا",v.names,v.camera) +
+    table("حساسية ADS (أثناء إطلاق النار)",v.names,v.ads) +
+    table("حساسية الجيروسكوب",v.names,v.gyroValues);
+  latestText = $("summary").textContent + "\n\n" +
+    "الكاميرا:\n" + v.names.map((n,i)=>`${n}: ${v.camera[i]}`).join("\n") +
+    "\n\nADS:\n" + v.names.map((n,i)=>`${n}: ${v.ads[i]}`).join("\n") +
+    "\n\nالجيروسكوب:\n" + v.names.map((n,i)=>`${n}: ${v.gyroValues[i]}`).join("\n");
+  $("output").classList.remove("hidden");
+  $("output").scrollIntoView({behavior:"smooth",block:"start"});
+}
+$("generate").addEventListener("click",generate);
+$("copyAll").addEventListener("click",async()=>{
+  try{
+    await navigator.clipboard.writeText(latestText);
+    $("copyAll").textContent="تم النسخ";
+    setTimeout(()=>$("copyAll").textContent="نسخ الكل",1600);
+  }catch(e){
+    const area=document.createElement("textarea");
+    area.value=latestText;document.body.appendChild(area);area.select();
+    document.execCommand("copy");area.remove();
+    $("copyAll").textContent="تم النسخ";
+    setTimeout(()=>$("copyAll").textContent="نسخ الكل",1600);
+  }
+});
+generate();
+</script>
+</body>
+</html>
